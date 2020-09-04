@@ -92,7 +92,7 @@ module.exports = class Expr extends ASTNode {
     return expr
   }
   static combin(parent, it, fn1, fn2) {
-    if (!it.hasNext()) return null
+    if (!it || !it.hasNext()) return null
     const a = fn1()
     if (!a) {
       return it.hasNext() ? fn2() : null

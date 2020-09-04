@@ -29,16 +29,14 @@ class IfStmt extends Stmt {
 
 module.exports = IfStmt
 const { Block, Expr } = require("./index")
-
 IfStmt.parse = (it) => {
   const lexeme = it.nextMatch("if")
   const stmt = new IfStmt()
   stmt.setLexeme(stmt)
   it.nextMatch("(")
-  const expr = Expr.parse(it)
+  const expr = Expr.parseExpr(null, it)
   stmt.addChild(expr)
   it.nextMatch(")")
-
   const block = Block.parse(it)
   stmt.addChild(block)
   const tail = IfStmt.parseTail(it)

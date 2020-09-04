@@ -26,7 +26,7 @@ class Token {
     return this._val
   }
   isVariable() {
-    return this._type === tokenType.VARIABLE
+    return this._type === tokenType.VARIABLE.type
   }
   isScalar() {
     return (

@@ -24,7 +24,7 @@ const { Variable, Scalar } = require("./index")
 Factor.parse = (it) => {
   const token = it.peek()
   const type = token.getType()
-  if (type === AstNodeTypes.VARIABLE) {
+  if (token.isVariable()) {
     it.next()
     return new Variable(null, it)
   } else if (type === AstNodeTypes.SCALAR) {

@@ -5,7 +5,7 @@ const PeekTokenInterator = require("../src/parser/util/PeekTokenIterator.js")
 const PeekIterator = require("../src/common/peekIterator")
 const ParseUtils = require("../src/parser/util/parseUtils")
 const Expr = require("../src/parser/ast/Expr")
-const { AssignStmt, DecalreStmt } = require("./../src/parser/ast")
+const { AssignStmt, DecalreStmt, IfStmt } = require("./../src/parser/ast")
 const chai = require("chai"),
   expect = chai.expect,
   assert = chai.assert
@@ -19,6 +19,13 @@ function createToken(str) {
 // const expr = AssignStmt.parse(createToken("i = 5 * 3 "))
 // console.log(expr)
 // console.log(ParseUtils.toPostFixExpression(expr))
-const expr2 = DecalreStmt.parse(createToken("let i = 5 * 3 "))
-console.log(expr2)
-console.log(ParseUtils.toPostFixExpression(expr2))
+// const expr2 = DecalreStmt.parse(createToken("let i = 5 * 3 "))
+// console.log(expr2)
+// console.log(ParseUtils.toPostFixExpression(expr2))
+const expr3 = IfStmt.parse(
+  createToken(`if(a){
+  a = 2
+}  `)
+)
+console.log(expr3)
+console.log(ParseUtils.toPostFixExpression(expr3))

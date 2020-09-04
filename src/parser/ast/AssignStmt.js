@@ -14,9 +14,9 @@ const { Factor, Scalar } = require("./index")
 const { Expr } = require("./index")
 
 AssignStmt.parse = (it) => {
-  const tk = it.peek()
   const stmt = new AssignStmt()
-  const factor = new Factor(null, it)
+  const tk = it.peek()
+  const factor = Factor.parse(it)
   if (!factor) {
     throw Exception.fromToken(tk)
   }

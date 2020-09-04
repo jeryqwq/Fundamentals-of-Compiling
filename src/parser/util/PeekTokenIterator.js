@@ -7,6 +7,7 @@ module.exports = class PeekTokenIterator extends PeekIterator {
   }
   nextMatch(val) {
     const token = this.next()
+    console.log(token.getVal(), val)
     if (token.getVal() !== val) {
       throw ParseException.fromToken(token.getVal())
     }

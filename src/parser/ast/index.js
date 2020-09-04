@@ -23,4 +23,7 @@ module.exports = {
   get IfStmt() {
     return require("./IfStmt")
   },
+  get Stmt() {
+    return require("./Stmt")
+  },
 }
