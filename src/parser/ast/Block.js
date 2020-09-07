@@ -17,5 +17,5 @@ Block.parse = (it) => {
     block.addChild(stmt)
   }
   it.nextMatch("}")
-  return stmt
+  return block
 }

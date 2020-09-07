@@ -13,7 +13,7 @@ class PeekIterator {
   }
   peek() {
     if (this.stackPutBack.length > 0) {
-      return this.stackPutBack.head
+      return this.stackPutBack.tail
     }
     const val = this.it.next && this.it.next().value
     if (val) {
@@ -26,7 +26,8 @@ class PeekIterator {
 
   putBack() {
     if (this.queueCache.length > 0) {
-      this.stackPutBack.push(this.queueCache.pop())
+      const a = this.queueCache.pop()
+      this.stackPutBack.push(a)
     }
   }
   next() {

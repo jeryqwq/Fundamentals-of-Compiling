@@ -8,9 +8,9 @@ module.exports = class ParseUtils {
       case AstNodeTypes.OPERATOR:
         return `${this.toPostFixExpression(
           astNode.getChild(0)
-        )} ${this.toPostFixExpression(
-          astNode.getChild(1)
-        )} ${astNode.lexeme.getVal()}`
+        )} ${this.toPostFixExpression(astNode.getChild(1))} ${
+          astNode.lexeme && astNode.lexeme.getVal && astNode.lexeme.getVal()
+        }`
       case AstNodeTypes.SCALAR:
       case AstNodeTypes.VARIABLE:
         return astNode.lexeme.getVal()

@@ -22,10 +22,16 @@ function createToken(str) {
 // const expr2 = DecalreStmt.parse(createToken("let i = 5 * 3 "))
 // console.log(expr2)
 // console.log(ParseUtils.toPostFixExpression(expr2))
-const expr3 = IfStmt.parse(
-  createToken(`if(a){
+const stmt = IfStmt.parse(
+  createToken(`if(b){
   a = 2
 }  `)
 )
-console.log(expr3)
-console.log(ParseUtils.toPostFixExpression(expr3))
+const expr3 = stmt.getExpr()
+// const block = stmt.getBlcok()
+const assignStmt = stmt.getChild(0)
+const block = stmt.getChild(1)
+const elseBlock = stmt.getChild(2)
+console.log(expr3.lexeme.getVal() === "b")
+console.log(block.getChild(0).lexeme.getVal() === "=")
+console.log(elseBlock === null)

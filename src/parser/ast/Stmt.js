@@ -7,15 +7,12 @@ class Stmt extends ASTNode {
 module.exports = Stmt
 Stmt.parse = (it) => {
   const { AssignStmt, DecalreStmt, IfStmt } = require("./index")
-
   if (!it.hasNext()) {
     return null
   }
   const token = it.next()
   const lookhead = it.peek()
   it.putBack()
-  let test = it.peek()
-  debugger
   if (token.isVariable() && lookhead.getVal() === "=") {
     return AssignStmt.parse(it)
   } else if (token.getVal() === "let" && lookhead.isVariable()) {

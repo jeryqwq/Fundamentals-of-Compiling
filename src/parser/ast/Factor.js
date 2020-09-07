@@ -25,7 +25,7 @@ Factor.parse = (it) => {
   const token = it.peek()
   const type = token.getType()
   if (token.isVariable()) {
-    it.next()
+    // it.next()
     return new Variable(null, it)
   } else if (type === AstNodeTypes.SCALAR) {
     it.next()
