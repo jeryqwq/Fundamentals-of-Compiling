@@ -26,4 +26,7 @@ module.exports = {
   get Stmt() {
     return require("./Stmt")
   },
+  get FunctionArgs() {
+    return require("./FunctionArgs")
+  },
 }

@@ -8,4 +8,5 @@ module.exports = {
   FLOAT: new Enum("FLOAT", 1),
   BOOLEAN: new Enum("BOOLEAN", 1),
   STRING: new Enum("STRING", 1),
+  FUNCTION_ARGS: new Enum("FUNCTION_ARGS", 1),
 }

@@ -14,6 +14,7 @@ const Keywords = new Set([
   "eval",
   "for",
 ])
+const Types = new Set(["int", "string", "float"])
 class Token {
   constructor(type, val) {
     this._type = type
@@ -21,6 +22,9 @@ class Token {
   }
   getType() {
     return this._type
+  }
+  isType() {
+    return Types.has(this._type)
   }
   getVal() {
     return this._val

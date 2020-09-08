@@ -1,6 +1,6 @@
 const PeekIterator = require("./../../common/peekIterator")
 const tokenType = require("../../lexer/tokenType")
-const ParseException = require("./Excetion")
+const ParseException = require("./Exception")
 module.exports = class PeekTokenIterator extends PeekIterator {
   constructor(it) {
     super(it)
@@ -14,7 +14,7 @@ module.exports = class PeekTokenIterator extends PeekIterator {
   }
   nextMatchType(val) {
     const token = this.it.next()
-    if ((token, getType() !== val)) {
+    if (token.getType() !== val) {
       throw ParseException.fromToken(c)
     }
     return token

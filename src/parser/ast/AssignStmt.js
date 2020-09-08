@@ -1,7 +1,7 @@
 const ASTNode = require("./ASTNode")
 const Stmt = require("./Stmt")
 const ASTNodeTypes = require("./ASTNodeTypes")
-const Exception = require("./../util/Excetion")
+const Exception = require("./../util/Exception")
 class AssignStmt extends Stmt {
   //赋值语句
   constructor() {
