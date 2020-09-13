@@ -13,9 +13,9 @@ module.exports = class PeekTokenIterator extends PeekIterator {
     return token
   }
   nextMatchType(val) {
-    const token = this.it.next()
-    if (token.getType() !== val) {
-      throw ParseException.fromToken(c)
+    const token = this.it.next().value
+    if (token.getType() !== val.type) {
+      throw ParseException.fromToken(val.type)
     }
     return token
   }

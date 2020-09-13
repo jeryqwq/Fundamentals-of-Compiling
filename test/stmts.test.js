@@ -5,7 +5,8 @@ const PeekTokenInterator = require("../src/parser/util/PeekTokenIterator.js")
 const PeekIterator = require("../src/common/peekIterator")
 const ParseUtils = require("../src/parser/util/parseUtils")
 const Expr = require("../src/parser/ast/Expr")
-const { AssignStmt, DecalreStmt, IfStmt } = require("./../src/parser/ast")
+
+const { AssignStmt, DecalreStmt, IfStmt, Stmt } = require("./../src/parser/ast")
 const chai = require("chai"),
   expect = chai.expect,
   assert = chai.assert
@@ -22,16 +23,27 @@ function createToken(str) {
 // const expr2 = DecalreStmt.parse(createToken("let i = 5 * 3 "))
 // console.log(expr2)
 // console.log(ParseUtils.toPostFixExpression(expr2))
-const stmt = IfStmt.parse(
-  createToken(`if(b){
-  a = 2
-}  `)
-)
-const expr3 = stmt.getExpr()
-// const block = stmt.getBlcok()
-const assignStmt = stmt.getChild(0)
-const block = stmt.getChild(1)
-const elseBlock = stmt.getChild(2)
-console.log(expr3.lexeme.getVal() === "b")
-console.log(block.getChild(0).lexeme.getVal() === "=")
-console.log(elseBlock === null)
+
+//if 语法解析
+// const stmt = IfStmt.parse(
+//   createToken(`if(b){
+//   a = 2
+// }  `)
+// )
+// const expr3 = stmt.getExpr()
+// // const block = stmt.getBlcok()
+// const assignStmt = stmt.getChild(0)
+// const block = stmt.getChild(1)
+// const elseBlock = stmt.getChild(2)
+// console.log(expr3.lexeme.getVal() === "b")
+// console.log(block.getChild(0).lexeme.getVal() === "=")
+// console.log(elseBlock === null)
+
+//func
+const tokens = createToken(`
+func add(int a, int b) int {
+  let c =  a + b
+}
+`)
+
+const funcStmt = Stmt.parse(tokens)

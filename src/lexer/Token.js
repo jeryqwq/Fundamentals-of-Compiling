@@ -13,6 +13,8 @@ const Keywords = new Set([
   "const",
   "eval",
   "for",
+  "int",
+  "string",
 ])
 const Types = new Set(["int", "string", "float"])
 class Token {
@@ -24,7 +26,7 @@ class Token {
     return this._type
   }
   isType() {
-    return Types.has(this._type)
+    return Types.has(this._val)
   }
   getVal() {
     return this._val

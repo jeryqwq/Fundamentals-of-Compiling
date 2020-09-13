@@ -29,4 +29,7 @@ module.exports = {
   get FunctionArgs() {
     return require("./FunctionArgs")
   },
+  get FunctionDeclareStmt() {
+    return require("./FunctionDeclareStmt")
+  },
 }
