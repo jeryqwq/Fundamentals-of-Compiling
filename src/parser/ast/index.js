@@ -32,4 +32,7 @@ module.exports = {
   get FunctionDeclareStmt() {
     return require("./FunctionDeclareStmt")
   },
+  get ReturnStmt() {
+    return require("./ReturnStmt")
+  },
 }

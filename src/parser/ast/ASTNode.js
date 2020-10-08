@@ -4,7 +4,7 @@ class ASTNode {
     this.children = []
     this.lexeme = null
     this._type = type
-    this._label = label
+    this.label = label
   }
   getChildren() {
     return this.children
@@ -23,6 +23,7 @@ class ASTNode {
   }
   print(indent = 1) {
     console.log(`${"".padStart(indent * 2, " ")}----${this.label}`)
+
     this.children.forEach((x) => x.print(indent + 1))
   }
 }

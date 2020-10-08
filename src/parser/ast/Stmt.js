@@ -11,6 +11,7 @@ Stmt.parse = (it) => {
     DecalreStmt,
     IfStmt,
     FunctionDeclareStmt,
+    ReturnStmt,
   } = require("./index")
   if (!it.hasNext()) {
     return null
@@ -26,5 +27,7 @@ Stmt.parse = (it) => {
     return IfStmt.parse(it)
   } else if (token.getVal() === "func") {
     return FunctionDeclareStmt.parse(it)
+  } else if (token.getVal() === "return") {
+    return ReturnStmt.parse(it)
   }
 }

@@ -42,8 +42,9 @@ function createToken(str) {
 //func
 const tokens = createToken(`
 func add(int a, int b) int {
-  let c =  a + b
+  return a+b
 }
 `)
 
 const funcStmt = Stmt.parse(tokens)
+funcStmt.print()

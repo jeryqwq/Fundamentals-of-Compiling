@@ -38,7 +38,6 @@ FunctionStmt.parse = (it) => {
   const args = FunctionArgs.parse(it)
   func.addChild(args) //解析参数
   it.nextMatch(")") //闭合
-  debugger
 
   const keyword = it.nextMatchType(TokenTypes.KEYWORD)
   if (!keyword.isType()) {
